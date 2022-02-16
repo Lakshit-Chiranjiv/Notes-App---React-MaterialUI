@@ -1,10 +1,11 @@
-// import { createTheme,ThemeProvider } from '@mui/system';
+
 import React from 'react';
 import './index.css';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
-import {Routes,Route} from 'react-router-dom'
+import {BrowserRouter as MainRouter,Routes,Route,Link} from 'react-router-dom'
 import CreateNote from './components/CreateNote';
 import DisplayNotes from './components/DisplayNotes';
+import NotFound from './components/NotFound';
 import { deepOrange, yellow } from '@mui/material/colors';
 
 const myTheme = createTheme({
@@ -27,11 +28,15 @@ function App() {
   return (
     <ThemeProvider theme={myTheme}>
       <div className="App">
-        {/* <Routes>
-          <Route></Route>
-        </Routes> */}
-        <DisplayNotes/>
-        <CreateNote/>
+        <MainRouter>
+          <Link to="/create">Create note</Link>
+          <Link to="/">Display Notes</Link>
+          <Routes>
+            <Route path='/' element={<DisplayNotes/>}/>
+            <Route path='/create' element={<CreateNote/>}/>
+            <Route path='*' element={<NotFound/>}/>
+          </Routes>
+        </MainRouter>
       </div>
     </ThemeProvider>
   );

@@ -5,6 +5,7 @@ import { Container, FormControl, FormControlLabel, FormLabel, Radio, RadioGroup,
 import { makeStyles } from '@mui/styles';
 import KeyboardDoubleArrowRightIcon from '@mui/icons-material/KeyboardDoubleArrowRight';
 import { useState,useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 const useStyles = makeStyles({
@@ -30,6 +31,8 @@ const CreateNote = () => {
   const [errorMsg,setErrorMsg] = useState(false);
   const [noteCategory,setNoteCategory] = useState('Todos');
 
+  let navigate = useNavigate();
+
 
   useEffect(() => {
     setNoteTitleError(noteTitle==='');
@@ -51,6 +54,7 @@ const CreateNote = () => {
           details: noteDetails,
           category: noteCategory
         });
+        navigate("/");
         console.log("done");
       }
         
@@ -120,12 +124,6 @@ const CreateNote = () => {
           variant='contained' 
           color='primary'
           endIcon={<KeyboardDoubleArrowRightIcon/>}
-          // onClick={()=>{
-          //   if(noteTitle==='' || noteDetails==='')
-          //     setErrorMsg(true);
-          //   else
-          //     console.log(noteTitle,noteDetails,noteCategory);
-          // }}
           >
               SUBMIT
         </Button>
