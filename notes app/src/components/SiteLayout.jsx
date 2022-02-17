@@ -14,24 +14,31 @@ import { useNavigate,useLocation } from 'react-router-dom';
 
 const drawerWidth = 240;
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme)=>{
+  return{
     page: {
         backgroundColor: '#fff7e8',
-        width: '100%'
+        width: '100%',
+        padding: theme.spacing(4)
     },
     drawer: {
       width: drawerWidth
     },
     drawerPaper: {
-      width: drawerWidth
+      width: drawerWidth,
+      
     },
     main: {
       display: 'flex',
-      gap: '10px'
     },
     activeItem: {
-      background: '#fff7e8'
+      backgroundColor: '#fff7e8',
+      color: '#2d88ff'
+    },
+    drawerTitle: {
+      padding: theme.spacing(3)
     }
+}
 })
 
 const SiteLayout = ({children}) => {
@@ -64,6 +71,7 @@ const SiteLayout = ({children}) => {
       >
 
         <Typography
+          className={classes.drawerTitle}
           variant='h5' 
         >
           Note Tiles 👀
