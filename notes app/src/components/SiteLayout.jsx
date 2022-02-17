@@ -10,6 +10,9 @@ import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import { useNavigate,useLocation } from 'react-router-dom';
+import AppBar from '@mui/material/AppBar';
+import Toolbar from '@mui/material/Toolbar';
+import {format} from 'date-fns';
 
 
 const drawerWidth = 240;
@@ -17,7 +20,7 @@ const drawerWidth = 240;
 const useStyles = makeStyles((theme)=>{
   return{
     page: {
-        backgroundColor: '#fff7e8',
+        // backgroundColor: '#fff7e8',
         width: '100%',
         padding: theme.spacing(4)
     },
@@ -32,11 +35,17 @@ const useStyles = makeStyles((theme)=>{
       display: 'flex',
     },
     activeItem: {
-      backgroundColor: '#fff7e8',
-      color: '#2d88ff'
+      backgroundColor: '#ffdec8 !important',
     },
     drawerTitle: {
       padding: theme.spacing(3)
+    },
+    appbar: {
+      width: `calc(100% - ${drawerWidth}px) !important`
+    },
+    extraDiv: theme.mixins.toolbar,
+    dateText: {
+      flexGrow: '1'
     }
 }
 })
@@ -62,6 +71,19 @@ const SiteLayout = ({children}) => {
 
   return (
     <div className={classes.main}>
+
+      <AppBar
+        className={classes.appbar}
+      >
+        <Toolbar>
+          <Typography variant='h6'className={classes.dateText}>
+            Today is the {format(new Date(),'do MMMM Y')}
+          </Typography>
+          <Typography>
+            Hey, Lakshit
+          </Typography>
+        </Toolbar>
+      </AppBar>
       
       <Drawer
         className={classes.drawer}
@@ -73,6 +95,7 @@ const SiteLayout = ({children}) => {
         <Typography
           className={classes.drawerTitle}
           variant='h5' 
+          color='primary'
         >
           Note Tiles 👀
         </Typography>
@@ -97,6 +120,7 @@ const SiteLayout = ({children}) => {
       </Drawer>
 
       <div className={classes.page} >
+        <div className={classes.extraDiv}></div>
           {children}
       </div>
     </div>

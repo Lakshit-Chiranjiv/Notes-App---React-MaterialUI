@@ -9,11 +9,15 @@ import { makeStyles } from '@mui/styles';
 
 const useStyles = makeStyles({
     categoryClass: {
-        border: (noteObj) => {
-            if(noteObj.category == 'work')
-                return '2px solid red'
+        borderLeft: (noteObj) => {
+            if(noteObj.category == 'Finance Related')
+                return '5px solid red'
+            else if(noteObj.category == 'Schedule')
+                return '5px solid #ff9900'
             else if(noteObj.category == 'Assignments')
-                return '2px solid yellow'
+                return '5px solid #4dff4d'
+            else if(noteObj.category == 'Reminders')
+                return '5px solid #4d94ff'
         }
     }
 })
@@ -35,7 +39,7 @@ const NoteCard = ({noteObj,deleteNote}) => {
             />
 
             <CardContent>
-                <Typography variant="body4" color="text.secondary">
+                <Typography variant="body2" color="text.secondary">
                     {noteObj.details}
                 </Typography>
             </CardContent>
