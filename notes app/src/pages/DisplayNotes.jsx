@@ -24,10 +24,9 @@ const DisplayNotes = () => {
 
     return (
         <Container className="display">
-          display
           <Grid container spacing={4}>
             {notesArray.map((noteObj)=>{
-              return <Grid item key={noteObj.id} md={3} sm={6} xs={12} lg={4}>
+              return <Grid item key={noteObj.id} md={6} xs={12} lg={4}>
                 <NoteCard noteObj={noteObj} deleteNote={deleteNote} />
               </Grid>
             })}

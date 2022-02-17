@@ -30,8 +30,8 @@ function App() {
     <ThemeProvider theme={myTheme}>
       <div className="App">
         <MainRouter>
-          <Link to="/create">Create note</Link>
-          <Link to="/">Display Notes</Link>
+          {/* <Link to="/create">Create note</Link>
+          <Link to="/">Display Notes</Link> */}
           <SiteLayout>
             <Routes>
               <Route path='/' element={<DisplayNotes/>}/>
