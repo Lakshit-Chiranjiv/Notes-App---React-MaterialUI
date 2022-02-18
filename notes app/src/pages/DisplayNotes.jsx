@@ -4,6 +4,8 @@ import { Grid } from '@mui/material';
 import { Paper } from '@mui/material';
 import { Container } from '@mui/material';
 import NoteCard from '../components/NoteCard';
+import Masonry from 'react-masonry-css';
+import './../css/displayNotes.style.css';
 
 const DisplayNotes = () => {
 
@@ -22,15 +24,34 @@ const DisplayNotes = () => {
     }))
   }
 
+  const tileBreakPoints = {
+    default: 3,
+    1100: 2,
+    700: 1
+  }
+
     return (
+        // <Container className="display">
+        //   <Grid container spacing={4}>
+        //     {notesArray.map((noteObj)=>{
+        //       return <Grid item key={noteObj.id} md={6} xs={12} lg={4}>
+        //         <NoteCard noteObj={noteObj} deleteNote={deleteNote} />
+        //       </Grid>
+        //     })}
+        //   </Grid>
+        // </Container>
         <Container className="display">
-          <Grid container spacing={4}>
+          <Masonry
+              breakpointCols={tileBreakPoints}
+              className="my-masonry-grid"
+              columnClassName="my-masonry-grid_column"
+          >
             {notesArray.map((noteObj)=>{
-              return <Grid item key={noteObj.id} md={6} xs={12} lg={4}>
+              return <div key={noteObj.id}>
                 <NoteCard noteObj={noteObj} deleteNote={deleteNote} />
-              </Grid>
+              </div>
             })}
-          </Grid>
+          </Masonry>
         </Container>
       );
 };

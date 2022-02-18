@@ -13,6 +13,7 @@ import { useNavigate,useLocation } from 'react-router-dom';
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import {format} from 'date-fns';
+import Avatar from '@mui/material/Avatar';
 
 
 const drawerWidth = 240;
@@ -20,7 +21,6 @@ const drawerWidth = 240;
 const useStyles = makeStyles((theme)=>{
   return{
     page: {
-        // backgroundColor: '#fff7e8',
         width: '100%',
         padding: theme.spacing(4)
     },
@@ -46,6 +46,10 @@ const useStyles = makeStyles((theme)=>{
     extraDiv: theme.mixins.toolbar,
     dateText: {
       flexGrow: '1'
+    },
+    avatar: {
+      marginLeft: theme.spacing(2),
+      backgroundColor: '#fff'
     }
 }
 })
@@ -82,6 +86,7 @@ const SiteLayout = ({children}) => {
           <Typography>
             Hey, Lakshit
           </Typography>
+          <Avatar alt="Minato" src="./assets/minato.png" className={classes.avatar}/>
         </Toolbar>
       </AppBar>
       

@@ -5,6 +5,8 @@ import CardContent from '@mui/material/CardContent';
 import { IconButton, Typography } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { makeStyles } from '@mui/styles';
+import Avatar from '@mui/material/Avatar';
+import { purple,green,yellow,blue,teal } from '@mui/material/colors';
 
 
 const useStyles = makeStyles({
@@ -19,6 +21,20 @@ const useStyles = makeStyles({
             else if(noteObj.category == 'Reminders')
                 return '5px solid #4d94ff'
         }
+    },
+    avatarClass: {
+        backgroundColor: (noteObj) => {
+            if(noteObj.category == 'Finance Related')
+                return green[500]+' !important'
+            else if(noteObj.category == 'Schedule')
+                return purple[500]+' !important'
+            else if(noteObj.category == 'Assignments')
+                return teal[500]+' !important'
+            else if(noteObj.category == 'Reminders')
+                return blue[500]+' !important'
+            else
+                return yellow[500]+' !important'
+        }
     }
 })
 
@@ -26,9 +42,14 @@ const NoteCard = ({noteObj,deleteNote}) => {
     const classes = useStyles(noteObj);
   return (
     <div>
-        {/* <h4>{noteObj.title}</h4> */}
+
         <Card elevation={4} className={classes.categoryClass}>
             <CardHeader
+                avatar={
+                    <Avatar className={classes.avatarClass}>
+                        {noteObj.category[0].toUpperCase()}
+                    </Avatar>
+                }
                 action={
                     <IconButton onClick={()=>{deleteNote(noteObj.id)}}>
                         <DeleteIcon color='error'/>

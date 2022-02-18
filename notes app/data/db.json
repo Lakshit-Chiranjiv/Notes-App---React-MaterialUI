@@ -23,6 +23,18 @@
       "details": "today",
       "category": "Assignments",
       "id": 4
+    },
+    {
+      "title": "Pay Electricity Bill",
+      "details": "electic bill payment for January-February",
+      "category": "Finance Related",
+      "id": 6
+    },
+    {
+      "title": "Code a Project",
+      "details": "Some cool CSS stuff !!!",
+      "category": "Schedule",
+      "id": 7
     }
   ]
 }
