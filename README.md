@@ -13,6 +13,6 @@ Notes App created using React Material UI and React Router
 
 ### How it looks!!
 
-![screenshot1](https://github.com/Lakshit-Chiranjiv/Notes-App---React-MaterialUI/blob/main/notes%20app/src/assets/sitess1.png.jpg)
+![screenshot1](https://github.com/Lakshit-Chiranjiv/Notes-App---React-MaterialUI/blob/master/notes%20app/src/assets/sitess1.png.jpg)
 
-![screenshot2](https://github.com/Lakshit-Chiranjiv/Notes-App---React-MaterialUI/blob/main/notes%20app/src/assets/sitess2.png.jpg)
+![screenshot2](https://github.com/Lakshit-Chiranjiv/Notes-App---React-MaterialUI/blob/master/notes%20app/src/assets/sitess2.png.jpg)
