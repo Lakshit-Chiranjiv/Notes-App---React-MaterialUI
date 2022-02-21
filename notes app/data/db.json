@@ -35,6 +35,12 @@
       "details": "Some cool CSS stuff !!!",
       "category": "Schedule",
       "id": 7
+    },
+    {
+      "title": "complete lab",
+      "details": "wt lab questions to be completed",
+      "category": "Assignments",
+      "id": 8
     }
   ]
 }
